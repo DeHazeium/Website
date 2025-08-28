@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'Recursive';
+  src: url('adelia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* base layout */
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+#container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* intro fade */
+#intro {
+  transition: opacity 0.5s ease;
+}
+
+#intro.fade-out {
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+/* all hidden elements start invisible */
+#hiddenText,
+#hiddenImg,
+#hiddenImg1,
+#hiddenImg2,
+#hiddenImg3,
+#hiddenPar,
+#hiddenPar1,
+#hiddenPar2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  margin: 1rem auto;
+  max-width: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+
+#hiddenPar,
+#hiddenPar1,
+#hiddenPar2 {
+  font-family: 'Recursive', sans-serif;
+}
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto;
+}
+
+/* heading + paragraphs */
+#hiddenText {
+  font-size: 3rem;
+}
+
+#hiddenPar {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 80%;
+  margin: 1rem auto;
+}
+
+/* standalone images */
+img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* lily flower image */
+#hiddenImg {
+  display: block;
+  margin: 1rem auto;
+  width: 250px;   /* adjust size */
+  max-width: 80%;
+  height: auto;
+  position: relative; /* stays in flow */
+}
+
+/* penguin image */
+#hiddenImg1 {
+  display: block;
+  margin: 1rem auto;
+  width: 180px;   /* adjust size */
+  max-width: 60%;
+  height: auto;
+  position: relative;
+  top: -20px;   /* nudge position upward */
+}
+
+/* sticky note wrapper */
+.note {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+  margin: 1rem auto;
+}
+
+.note img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* overlay text on sticky notes */
+.note p {
+  position: absolute;
+  top: 30%; /* adjust to align with sticky note */
+  left: 40%;
+  transform: translateX(-50%);
+  width: 80%;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+  color: #222;
+}
+
+/* button */
+button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #385574;
+}
+
+/* responsiveness */
+@media (max-width: 768px) {
+  #hiddenText {
+    font-size: 1.5rem;
+  }
+
+  #hiddenPar,
+  .note p {
+    font-size: 0.85rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  #hiddenText {
+    font-size: 1.2rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .note p {
+    font-size: 0.75rem;
+  }
+
+  
+}
